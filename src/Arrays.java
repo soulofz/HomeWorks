@@ -59,7 +59,7 @@ public class Arrays {
             System.out.println("Нулевых элементов - нет.");
         }
 
-        //ПРоверка на последовательность(Задача 6)
+        //Проверка на последовательность(Задача 6)
         boolean inc = true;
         for (int i = 1; i < arrInt.length; i++) {
             if (arrInt[i] < arrInt[i - 1]) {
@@ -67,7 +67,7 @@ public class Arrays {
                 break;
             }
         }
-        if (inc == true) {
+        if (inc) {
             System.out.println("Массив является возрастающей последовательностью.");
         } else {
             System.out.println("Массив не является возрастающей последовательностью.");
