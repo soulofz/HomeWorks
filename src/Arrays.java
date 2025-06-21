@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Arrays {
     public static void main(String[] args) {
+
         //Создание массива(Условие)
         System.out.println("Введите длину массива");
         Scanner scanner = new Scanner(System.in);
@@ -32,7 +33,6 @@ public class Arrays {
         int max = arrInt[0];
         int minIndex = 0;
         int maxIndex = 0;
-
         for (int i = 1; i < arrInt.length; i++) {
             if (arrInt[i] < min) {
                 min = arrInt[i];
@@ -43,7 +43,6 @@ public class Arrays {
                 maxIndex = i;
             }
         }
-
         System.out.println("Минимальный элемент: " + min + " (индекс " + minIndex + ")");
         System.out.println("Максимальный элемент: " + max + " (индекс " + maxIndex + ")");
 
