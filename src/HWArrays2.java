@@ -68,5 +68,6 @@ public class HWArrays2 {
             }
             System.out.println();
         }
+        scanner1.close();
     }
 }
