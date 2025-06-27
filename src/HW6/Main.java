@@ -15,7 +15,7 @@ public class Main {
         System.out.println();
         card3.info();
 
-        ATM atm = new ATM(5,5,5);
+        ATM atm = new ATM(5, 5, 5);
         boolean resultAtm = atm.withdraw(610);
         System.out.println(resultAtm);
         atm.info();
