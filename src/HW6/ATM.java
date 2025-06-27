@@ -52,18 +52,20 @@ public class ATM {
                     return true;
                 }
             }
-        }System.out.println("Невозможно снять сумму.");
+        }
+        System.out.println("Невозможно снять сумму.");
         return false;
     }
-    void info(){
+
+    void info() {
         System.out.println("В банкомате купюры:");
-        if (count20>0) {
+        if (count20 > 0) {
             System.out.println("Номиналом 20 рублей - " + count20);
         }
-        if (count50>0){
+        if (count50 > 0) {
             System.out.println("Номиналом 50 рублей - " + count50);
         }
-        if (count100>0){
+        if (count100 > 0) {
             System.out.println("Номиналом 100 рублей - " + count100);
         }
     }
