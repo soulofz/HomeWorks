@@ -70,6 +70,9 @@ public class ATM {
         }
     }
 }
+
+//СПОСОБ СНИЗУ РАБОТАЕТ НЕКОРРЕКТНО
+
 //        int need100 = Math.min(addcash / 100, count100);
 //        addcash -= need100 * 100;
 //        int need50 = Math.min(addcash / 50, count50);
