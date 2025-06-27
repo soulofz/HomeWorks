@@ -27,7 +27,6 @@ public class ATM {
 
     boolean withdraw(int addcash) {
         System.out.println("Запрос на сумму снятия " + addcash + " рублей");
-        int cash = addcash;
         for (int need100 = Math.min(addcash, count100); need100 >= 0; need100--) {
             for (int need50 = Math.min((addcash - need100 * 100) / 50, count50); need50 >= 0; need50--) {
                 int remaining = addcash - need100 * 100 - need50 * 50;
@@ -39,7 +38,7 @@ public class ATM {
                     count100 -= need100;
                     count50 -= need50;
                     count20 -= need20;
-                    System.out.println("Успешная выдача " + cash + " рублей." + "\nВыдано купюр:");
+                    System.out.println("Успешная выдача " + addcash + " рублей." + "\nВыдано купюр:");
                     if (need100 > 0) {
                         System.out.println("Номиналом 100 рублей - " + need100);
                     }
