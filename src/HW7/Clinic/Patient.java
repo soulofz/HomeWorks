@@ -4,7 +4,7 @@ public class Patient {
     private int treatmentPlan;
     private Doctor doctor;
 
-    Patient(int code){
+    Patient(int code) {
         this.treatmentPlan = code;
     }
 

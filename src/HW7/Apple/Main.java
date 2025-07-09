@@ -9,7 +9,7 @@ public class Main {
 
         Field field = Apple.class.getDeclaredField("color");
         field.setAccessible(true);
-        field.set(apple,"Красный");
+        field.set(apple, "Красный");
 
         apple.printColor();
     }
