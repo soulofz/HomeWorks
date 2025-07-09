@@ -6,6 +6,7 @@ public class Dog {
     public static final String EAT = "Meat.";
     public static final String VOICE = "Woof.";
 
+    //Способ 2:
     // Приватный конструктор(чтобы нельзя было создать.)
    private Dog(){
    }
