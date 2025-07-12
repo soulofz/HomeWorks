@@ -9,7 +9,7 @@ public class Car implements Cloneable { //Добавляем чтобы был �
     public Car clone() {
         try {
             return (Car) super.clone(); //чтобы возвращало клон этого класса
-        } catch (CloneNotSupportedException e) { //ошибка = что класс не клонируемый(первая пометка)
+        } catch (CloneNotSupportedException e) { //ошибка = что класс не клонируемый(первая пометка(Cloneable))
             throw new RuntimeException("Clone is not supported"); // выдает ошибку с надписью, что клон не поддерживается
         }
     }
