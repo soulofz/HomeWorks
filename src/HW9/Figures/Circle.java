@@ -5,7 +5,7 @@ public class Circle extends Figure {
 
     Circle(double radius) {
         if (radius <= 0) {
-            System.out.println("Radius must be positive.");
+            throw new RuntimeException("Radius must be positive.");
         }
         this.radius = radius;
     }
