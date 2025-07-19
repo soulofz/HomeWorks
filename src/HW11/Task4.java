@@ -24,7 +24,6 @@ public class Task4 {
                 }
                 if (!unique) break;
             }
-
             if (unique) {
                 System.out.println("Первое слово с уникальными символами: " + word);
                 scanner.close();
