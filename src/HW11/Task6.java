@@ -7,7 +7,7 @@ public class Task6 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите строку:");
         String string1 = scanner.nextLine();
-        String[] words = string1.trim().replaceAll("[!.,?:()]", "").toLowerCase().split(" ");
+        String[] words = string1.trim().replaceAll("[!`@~#$%^&*;/<>.,?:()]", "").toLowerCase().split(" ");
         System.out.println("Введите номер слова:");
         int index = scanner.nextInt();
         System.out.println();
