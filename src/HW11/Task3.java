@@ -11,7 +11,8 @@ public class Task3 {
         String string2 = scanner.nextLine();
         System.out.println("Введите третью строку:");
         String string3 = scanner.nextLine();
-        double average = (string1.length() + string2.length() + string3.length()) / 3.0;
+        double numberOfRows = 3.0;
+        double average = (string1.length() + string2.length() + string3.length()) / numberOfRows;
         boolean result = false;
         if (string1.length() < average) {
             System.out.println(string1 + ".Ее длина равна " + string1.length());

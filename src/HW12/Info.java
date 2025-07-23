@@ -19,22 +19,22 @@ public class Info {
         Matcher matcherPhone = phonePattern.matcher(input);
         Matcher matcherEmail = emailPattern.matcher(input);
         boolean result = false;
-        while (matcherEmail.find()){
+        while (matcherEmail.find()) {
             System.out.println("Найден email адрес:");
             System.out.println(matcherEmail.group());
             result = true;
         }
-        while (matcherDoc.find()){
+        while (matcherDoc.find()) {
             System.out.println("Найден номер документа:");
             System.out.println(matcherDoc.group());
             result = true;
         }
-        while (matcherPhone.find()){
+        while (matcherPhone.find()) {
             System.out.println("Найден номер телефона:");
             System.out.println(matcherPhone.group());
-            result=true;
+            result = true;
         }
-        if (!result){
+        if (!result) {
             System.out.println("Ничего не найдено.");
         }
     }

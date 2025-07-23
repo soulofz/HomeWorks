@@ -10,9 +10,9 @@ public class Abbreviation {
         System.out.println("Введите строку:");
         String input = scanner.nextLine();
         String regex = "[A-z]{2,6}";
-        Pattern pattern  = Pattern.compile(regex);
+        Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
-        while (matcher.find()){
+        while (matcher.find()) {
             System.out.println("Аббревиатуры:");
             System.out.println(matcher.group());
         }
