@@ -44,7 +44,6 @@ public class Task1 {
                 System.out.println(strings[i]);
             }
         }
-
         System.out.println(minCount + " строк(а) минимальной длины (" + minLength + "):");
         for (int i = 0; i < count; i++) {
             if (strings[i].length() == minLength) {
