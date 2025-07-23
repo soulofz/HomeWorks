@@ -5,62 +5,53 @@ import java.util.Scanner;
 public class Task1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите первую строку:");
-        String string1 = scanner.nextLine();
-        System.out.println("Введите вторую строку:");
-        String string2 = scanner.nextLine();
-        System.out.println("Введите третью строку:");
-        String string3 = scanner.nextLine();
-        int min = string1.length();
-        int max = string1.length();
-        int value = 1;
-        String longest = string1;
-        String shortest = string1;
-        if (max < string2.length()) {
-            max = string2.length();
-            longest = string2;
-        } else if (min > string2.length()) {
-            min = string2.length();
-            shortest = string2;
-        } else {
-            value++;
+        System.out.println("Введите количество строк для ввода:");
+        int count = Integer.parseInt(scanner.nextLine());
+        String[] strings = new String[count];
+        System.out.println("Введите строки:");
+        for (int i = 0; i < count; i++) {
+            strings[i] = scanner.nextLine();
         }
-        if (max < string3.length()) {
-            max = string3.length();
-            longest = string3;
-        } else if (min > string3.length()) {
-            min = string3.length();
-            shortest = string3;
-        } else {
-            value++;
-        }
-        if (value > 2) {
-            System.out.println("У вас " + value + " строки одинаковой длины равной " + max + ".");
-        } else if (value == 2) {
-            System.out.println("У вас " + value + " строки одинаковой длины.");
-            if (string1.length() == string2.length() && string1.length() > string3.length()) {
-                System.out.println("Две длинные строки: " + string1 + "," + string2 + ".Их длина равна " + max + ".");
-                System.out.println("Самая короткая строка " + shortest + ".Eе длина равна " + min + ".");
-            } else if (string1.length() == string3.length() && string1.length() > string2.length()) {
-                System.out.println("Две длинные строки: " + string1 + "," + string3 + ".Их длина равна " + max + ".");
-                System.out.println("Самая короткая строка " + shortest + ".Eе длина равна " + min + ".");
-            } else if (string2.length() == string3.length() && string2.length() > string1.length()) {
-                System.out.println("Две длинные строки: " + string2 + "," + string3 + ".Их длина равна " + max + ".");
-                System.out.println("Самая короткая строка " + shortest + ".Eе длина равна " + min + ".");
-            } else if (string1.length() == string2.length() && string1.length() < string3.length()) {
-                System.out.println("Две короткие строки: " + string1 + "," + string2 + ".Их длина равна " + min + ".");
-                System.out.println("Самая длинная строка " + longest + ".Eе длина равна " + max + ".");
-            } else if (string1.length() == string3.length() && string1.length() < string2.length()) {
-                System.out.println("Две короткие строки: " + string1 + "," + string3 + ".Их длина равна " + min + ".");
-                System.out.println("Самая длинная строка " + longest + ".Eе длина равна " + max + ".");
-            } else if (string2.length() == string3.length() && string2.length() < string1.length()) {
-                System.out.println("Две короткие строки: " + string2 + "," + string3 + ".Их длина равна " + min + ".");
-                System.out.println("Самая длинная строка " + longest + ".Eе длина равна " + max + ".");
+        int minLength = strings[0].length();
+        int maxLength = strings[0].length();
+        for (int i = 1; i < count; i++) {
+            int length = strings[i].length();
+            if (length < minLength) {
+                minLength = length;
             }
-        } else {
-            System.out.println("Самая длинная строка " + longest + ".Ее длина равна " + max + ".");
-            System.out.println("Самая короткая строка " + shortest + ".Ее длина равна " + min + ".");
-            scanner.close();
+            else if (length > maxLength) {
+                maxLength = length;
+            }
         }
+        int minCount = 0;
+        int maxCount = 0;
+        System.out.println("\nРезультат:");
+        for (int i = 0; i < count; i++) {
+            if (strings[i].length() == maxLength) {
+                maxCount++;
+            }
+            if (strings[i].length() == minLength) {
+                minCount++;
+            }
+        }
+        if (minLength == maxLength) {
+            System.out.println("Все строки одинаковой длины: " + maxLength);
+        } else {
+            System.out.println(maxCount + " строка(а) максимальной длины (" + maxLength + "):");
+            for (int i = 0; i < count; i++) {
+                if (strings[i].length() == maxLength) {
+                    System.out.println(strings[i]);
+                }
+            }
+
+            System.out.println(minCount + " строк(а) минимальной длины (" + minLength + "):");
+            for (int i = 0; i < count; i++) {
+                if (strings[i].length() == minLength) {
+                    System.out.println(strings[i]);
+                }
+            }
+        }
+
+        scanner.close();
     }
 }
