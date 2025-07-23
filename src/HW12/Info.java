@@ -11,7 +11,7 @@ public class Info {
         String input = scanner.nextLine();
         String documentNumber = "\\d{4}-\\d{4}-\\d{2}";
         String telephone = "\\+\\(\\d{2}\\)\\d{7}";
-        String email = "[A-z]+\\d?[a-z]+?@[a-z]+.[a-z]+";
+        String email = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
         Pattern docPattern = Pattern.compile(documentNumber);
         Pattern phonePattern = Pattern.compile(telephone);
         Pattern emailPattern = Pattern.compile(email);
