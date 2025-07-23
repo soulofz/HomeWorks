@@ -18,10 +18,14 @@ public class Task1 {
             int length = strings[i].length();
             if (length < minLength) {
                 minLength = length;
-            }
-            else if (length > maxLength) {
+            } else if (length > maxLength) {
                 maxLength = length;
             }
+        }
+        if (minLength == maxLength) {
+            System.out.println("Все строки одинаковой длины: " + maxLength);
+            scanner.close();
+            return;
         }
         int minCount = 0;
         int maxCount = 0;
@@ -34,24 +38,19 @@ public class Task1 {
                 minCount++;
             }
         }
-        if (minLength == maxLength) {
-            System.out.println("Все строки одинаковой длины: " + maxLength);
-        } else {
-            System.out.println(maxCount + " строка(а) максимальной длины (" + maxLength + "):");
-            for (int i = 0; i < count; i++) {
-                if (strings[i].length() == maxLength) {
-                    System.out.println(strings[i]);
-                }
-            }
-
-            System.out.println(minCount + " строк(а) минимальной длины (" + minLength + "):");
-            for (int i = 0; i < count; i++) {
-                if (strings[i].length() == minLength) {
-                    System.out.println(strings[i]);
-                }
+        System.out.println(maxCount + " строк(а) максимальной длины (" + maxLength + "):");
+        for (int i = 0; i < count; i++) {
+            if (strings[i].length() == maxLength) {
+                System.out.println(strings[i]);
             }
         }
 
+        System.out.println(minCount + " строк(а) минимальной длины (" + minLength + "):");
+        for (int i = 0; i < count; i++) {
+            if (strings[i].length() == minLength) {
+                System.out.println(strings[i]);
+            }
+        }
         scanner.close();
     }
 }
