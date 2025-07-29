@@ -9,7 +9,7 @@ public class Abbreviation {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите строку:");
         String input = scanner.nextLine();
-        String regex = "[A-z]{2,6}";
+        String regex = "[A-Z]{2,6}";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
         while (matcher.find()) {
