@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package HW5;
+
 import java.util.Random;
 import java.util.Scanner;
 
