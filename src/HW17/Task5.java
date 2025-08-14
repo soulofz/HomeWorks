@@ -1,6 +1,5 @@
 package HW17;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.function.Supplier;
