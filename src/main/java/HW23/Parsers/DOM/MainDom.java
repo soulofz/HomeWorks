@@ -3,53 +3,44 @@ package HW23.Parsers.DOM;
 import HW23.Model.Author;
 import HW23.Model.Sonnet;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainDom {
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder domBuilder = domFactory.newDocumentBuilder();
-        List<String> lines = new ArrayList<>();
+    public static Sonnet parse() throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
 
-        Document document = domBuilder.parse(new File("file.xml"));
-        document.getDocumentElement().normalize();
+        Sonnet sonnet = new Sonnet();
 
-        String firstName = document.getElementsByTagName("firstName").item(0).getTextContent();
-        String lastName = document.getElementsByTagName("lastName").item(0).getTextContent();
-        String title = document.getElementsByTagName("title").item(0).getTextContent();
-        String type = document.getDocumentElement().getAttribute("type");
+        File file = new File("file.xml");
+        if (!file.exists()) {
+            throw new IOException("file.xml не найден");
+        }
+
+        Document document = builder.parse(file);
+
+        Author author = new Author();
+        author.setFirstName(document.getElementsByTagName("firstName").item(0).getTextContent());
+        author.setLastName(document.getElementsByTagName("lastName").item(0).getTextContent());
+        sonnet.setAuthor(author);
+
+        sonnet.setTitle(document.getElementsByTagName("title").item(0).getTextContent());
 
         NodeList nodeList = document.getElementsByTagName("line");
+        List<String> lines = new ArrayList<>();
         for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            lines.add(node.getTextContent());
+            lines.add(nodeList.item(i).getTextContent());
         }
+        sonnet.setLines(lines);
 
-        Author author = new Author(firstName, lastName);
-        Sonnet sonnet = new Sonnet(type, author, title, lines);
-
-        String fileName = sonnet.getAuthor().getFirstName() + "_"
-                + sonnet.getAuthor().getLastName() + "_"
-                + sonnet.getTitle();
-
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName))) {
-            for (String line : sonnet.getLines()){
-                bufferedWriter.write(line);
-                bufferedWriter.newLine();
-            }
-        }
-        System.out.println("Файл создан.");
+        return sonnet;
     }
 }
