@@ -20,12 +20,7 @@ public class MainDom {
 
         Sonnet sonnet = new Sonnet();
 
-        File file = new File("file.xml");
-        if (!file.exists()) {
-            throw new IOException("file.xml не найден");
-        }
-
-        Document document = builder.parse(file);
+        Document document = builder.parse(new File("file.xml"));
 
         Author author = new Author();
         author.setFirstName(document.getElementsByTagName("firstName").item(0).getTextContent());
