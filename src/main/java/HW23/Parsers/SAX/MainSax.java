@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class MainSax {
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+    public static Sonnet parse() throws ParserConfigurationException, SAXException, IOException {
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         SAXParser saxParser = saxParserFactory.newSAXParser();
 
@@ -32,5 +32,6 @@ public class MainSax {
             }
         }
         System.out.println("Файл создан.");
+        return sonnet;
     }
 }
